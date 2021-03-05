@@ -124,13 +124,15 @@ def horoscope_results():
     users_personality = HOROSCOPE_PERSONALITIES.get(horoscope_sign)
 
     # TODO: Generate a random number from 1 to 99
-    lucky_number = random.randit(1, 99)
+    lucky_number = random.randint(1, 99)
 
     context = {
+        'users_name': users_name,
         'horoscope_sign': horoscope_sign,
-        'personality': users_personality,
+        'personality': users_personality, 
         'lucky_number': lucky_number
     }
+
     return render_template('horoscope_results.html', **context)
 
 if __name__ == '__main__':
